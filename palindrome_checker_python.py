@@ -26,7 +26,7 @@ print(f'Function palindrome_check took {end - start} seconds')
 #Second approach: only looping through half the string
 def palindrome_short(input_str):
     length = len(input_str)
-    for i in range(0, int(length/2)):
+    for i in range(0, length // 2):
         if input_str[i] != input_str[(length-1)-i]:
             return False
     return True
