@@ -18,7 +18,7 @@ def slow_solution(input_str):
 start = time.time()
 print(slow_solution(TEST_INPUT_2))
 end = time.time()
-print(f'Function took {end - start} seconds')
+print(f'Function slow_solution took {end - start} seconds')
 
 
 #Better solution that only iterates through the sequence once, and uses counts
@@ -34,4 +34,4 @@ def better_solution(input_str):
 start = time.time()
 print(better_solution(TEST_INPUT_2))
 end = time.time()
-print(f'Function took {end - start} seconds')
+print(f'Function better_solution took {end - start} seconds')
