@@ -1,0 +1,20 @@
+'''
+Create a function that takes two inputs and returns true if they are anagrams
+or false if they are not.
+'''
+
+w1 = 'garden'
+w2 = 'danger'
+
+#Solution one, my blind attempt at solving this problem.
+def is_anagram(w1, w2):
+    let_list1, let_list2 = [*w1], [*w2]
+    if len(let_list1) != len(let_list2):
+        return False
+    else:
+        for i in let_list1:
+            if i not in let_list2:
+                return False
+        return True
+
+print(is_anagram(w1, w2))
