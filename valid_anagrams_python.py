@@ -2,6 +2,7 @@
 Create a function that takes two inputs and returns true if they are anagrams
 or false if they are not.
 '''
+import time
 
 w1 = 'garden'
 w2 = 'danger'
@@ -17,4 +18,7 @@ def is_anagram(w1, w2):
                 return False
         return True
 
+start = time.time()
 print(is_anagram(w1, w2))
+end = time.time()
+print(f'Function is_anagram completed in {(end - start)*1000} ms.')
