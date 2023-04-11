@@ -19,8 +19,43 @@ function isAnagram(w1, w2) {
     }
   }
   
-  let w1 = 'garden';
-  let w2 = 'danger';
-  console.time("isAnagram")
-  console.log(isAnagram(w1, w2)); // Output: true
-  console.timeEnd("isAnagram")
+let w1 = 'garden';
+let w2 = 'danger';
+console.time("isAnagram")
+console.log(isAnagram(w1, w2));
+console.timeEnd("isAnagram")
+
+//Solution 2, using objects to store letter counts. Significantly faster.
+function dictAnagram(w1, w2) {
+    if (w1.length !== w2.length) {
+      return false;
+    } else {
+      let w1Dict = {};
+      let w2Dict = {};
+  
+      for (let c of w1) {
+        w1Dict[c] = w1Dict[c] ? w1Dict[c] + 1 : 1;
+      }
+      for (let c of w2) {
+        w2Dict[c] = w2Dict[c] ? w2Dict[c] + 1 : 1;
+      }
+  
+      const w1Keys = Object.keys(w1Dict);
+      const w2Keys = Object.keys(w2Dict);
+      for (let i = 0; i < w1Keys.length; i++) {
+          const key = w1Keys[i];
+          if (!w2Dict.hasOwnProperty(key)) {
+            return false;
+          }
+          if (w1Dict[key] !== w2Dict[key]) {
+            return false;
+          }
+        }
+        return true;
+    }
+  }
+  
+
+console.time('dictAnagram');
+console.log(dictAnagram(w1, w2));
+console.timeEnd('dictAnagram');

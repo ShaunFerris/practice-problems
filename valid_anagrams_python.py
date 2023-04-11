@@ -22,3 +22,17 @@ start = time.time()
 print(is_anagram(w1, w2))
 end = time.time()
 print(f'Function is_anagram completed in {(end - start)*1000} ms.')
+
+#Solution two, using dictionaries
+def dict_anagram(w1, w2):
+    if len(w1) != len(w2):
+        return False
+    else:
+        w1_dict = {c: w1.count(c) for c in w1}
+        w2_dict = {c: w2.count(c) for c in w2}
+        return w1_dict == w2_dict
+
+start = time.time()
+print(dict_anagram(w1, w2))
+end = time.time()
+print(f'Function dict_anagram completed in {(end - start)*1000} ms.')
