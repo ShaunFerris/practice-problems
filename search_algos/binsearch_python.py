@@ -3,7 +3,6 @@ Basic implementation of the binary search algorithm in python.
 
 '''
 
-
 def binary_search(arr, l, r, val):
     '''
     Args:
