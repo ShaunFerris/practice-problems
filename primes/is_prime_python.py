@@ -6,8 +6,10 @@ from math import isqrt #this is just a floor sqrt function
 
 '''
 Solution one:
-Basic seive, with the 6k +/- 1 optimization. Other more
-complex implementations are much faster for larger n.
+Basic seive, with the 6k +/- 1 optimization, meaning that 
+all primes greater than 3 are of the form 6k ± 1, where k 
+is any integer greater than 0. Other more complex 
+implementations are much faster for larger n.
 '''
 def is_prime(n):
     if n <= 3:
