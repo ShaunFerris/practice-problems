@@ -1,8 +1,13 @@
 /*
 Write a function that computes the nth fibonacci number
-Use a dynamic programming approach with memoization.
 */
 
+/*
+Solution one:
+Use a dynamic programming approach with memoization.
+To print the fib sequence up to the nth term, run the function
+and then print 0, 1 + the values of the memoizer object.
+*/
 const memoizer = {};
 
 function fib(i) {
@@ -22,8 +27,23 @@ function fib(i) {
 }
 
 console.log(fib(10))
+
 /*
-To print the fib sequence up to the nth term, run the function
-and then print the values of the memoizer object.
+Solution two:
+Without using recursion, return the sequence to the nth member.
+To return only the last member and not the sequence, return
+out[out.length-1]
 */
-Object.values(memoizer).forEach(val => console.log(val));
+
+function fib_iterative(nth) {
+    let n1 = 1, n2 =1, nextTerm;
+    let out = [];
+    for (let i = 1; i <= nth; i++) {
+        out.push(n1);
+        nextTerm = n1 + n2;
+        n1 = n2;
+        n2 = nextTerm;
+    }
+    return out;
+}
+console.log(fib_iterative(10));
