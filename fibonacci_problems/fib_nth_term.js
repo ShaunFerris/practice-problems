@@ -1,6 +1,6 @@
 /*
-Write a function that computes the fibonnaci number at a given index i
-along the fibonacci sequence. Use a dynamic programming approach with memoization.
+Write a function that computes the nth fibonacci number
+Use a dynamic programming approach with memoization.
 */
 
 const memoizer = {};
@@ -22,3 +22,8 @@ function fib(i) {
 }
 
 console.log(fib(10))
+/*
+To print the fib sequence up to the nth term, run the function
+and then print the values of the memoizer object.
+*/
+Object.values(memoizer).forEach(val => console.log(val));
