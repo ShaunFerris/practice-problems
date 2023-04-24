@@ -26,3 +26,20 @@ function steamRoll(arr) {
 let testArr = [1,2,[3,4,[5,6],7,[8,[9,91]],10],11,12];
 
 console.log(steamRoll(testArr));
+
+/*
+Or do it all in one go without using the flat() builtin by
+using recursion to traverse the list directly. This is the 
+equivalent of the python solution to this problem is this directory.
+*/
+function iterSteamroll(arr) {
+    let out = [];
+    for (let i of arr) {
+        if (Array.isArray(i)) {
+            out = out.concat(iterSteamroll(i));
+        } else out.push(i);
+    }
+    return out;
+}
+
+console.log(iterSteamroll(testArr));
