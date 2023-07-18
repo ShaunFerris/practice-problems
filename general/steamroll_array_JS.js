@@ -13,17 +13,17 @@ array return 0. When it is, return 1 + a map of the arrays elements onto
 this function, thus you will return 1 for every array inside another array.
 */
 function getDepth(arr) {
-    return Array.isArray(arr) ?
-        1 + Math.max(0, ...arr.map(getDepth)) :
-        0;
+  return Array.isArray(arr)
+    ? 1 + Math.max(0, ...arr.map(getDepth))
+    : 0;
 }
 
 function steamRoll(arr) {
-    const depth = getDepth(arr);
-    return arr.flat(depth)
+  const depth = getDepth(arr);
+  return arr.flat(depth);
 }
 
-let testArr = [1,2,[3,4,[5,6],7,[8,[9,91]],10],11,12];
+let testArr = [1, 2, [3, 4, [5, 6], 7, [8, [9, 91]], 10], 11, 12];
 
 console.log(steamRoll(testArr));
 
@@ -33,13 +33,13 @@ using recursion to traverse the list directly. This is the
 equivalent of the python solution to this problem is this directory.
 */
 function iterSteamroll(arr) {
-    let out = [];
-    for (let i of arr) {
-        if (Array.isArray(i)) {
-            out = out.concat(iterSteamroll(i));
-        } else out.push(i);
-    }
-    return out;
+  let out = [];
+  for (let i of arr) {
+    if (Array.isArray(i)) {
+      out = out.concat(iterSteamroll(i));
+    } else out.push(i);
+  }
+  return out;
 }
 
 console.log(iterSteamroll(testArr));
