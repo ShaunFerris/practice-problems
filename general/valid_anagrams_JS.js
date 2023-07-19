@@ -5,13 +5,23 @@ or false if they are not.
 
 //Solution one, blind attempt at solving the problem
 function isAnagram(w1, w2) {
-  let letList1 = [...w1];
-  let letList2 = [...w2];
-  if (letList1.length !== letList2.length) {
+  if (w1.length !== w2.length) {
     return false;
   } else {
+    let letList1 = [...w1];
+    let letList2 = [...w2];
+    let memo = [];
+
     for (let i = 0; i < letList1.length; i++) {
-      if (!letList2.includes(letList1[i])) {
+      if (!memo.includes(letList1[i])) {
+        memo.push(letList1[i]);
+      } else {
+        continue;
+      }
+      if (
+        letList2.filter((e) => e === letList1[i]).length !=
+        letList1.filter((e) => e === letList1[i]).length
+      ) {
         return false;
       }
     }
@@ -19,8 +29,8 @@ function isAnagram(w1, w2) {
   }
 }
 
-let w1 = 'garden';
-let w2 = 'danger';
+let w1 = "gardenn";
+let w2 = "dangerr";
 console.time("isAnagram");
 console.log(isAnagram(w1, w2));
 console.timeEnd("isAnagram");
@@ -41,7 +51,7 @@ function dictAnagram(w1, w2) {
     }
 
     const w1Keys = Object.keys(w1Dict);
-    const w2Keys = Object.keys(w2Dict);
+
     for (let i = 0; i < w1Keys.length; i++) {
       const key = w1Keys[i];
       if (!w2Dict.hasOwnProperty(key)) {
@@ -55,7 +65,6 @@ function dictAnagram(w1, w2) {
   }
 }
 
-
-console.time('dictAnagram');
+console.time("dictAnagram");
 console.log(dictAnagram(w1, w2));
-console.timeEnd('dictAnagram');
+console.timeEnd("dictAnagram");
